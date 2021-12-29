@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "com.example.coroutinenoncancellable.grpc";
+
+service SampleService {
+    rpc CancellablePutTwoInts (PutTwoIntsRequest) returns (PutTwoIntsResponse);
+    rpc NonCancellablePutTwoInts(PutTwoIntsRequest) returns (PutTwoIntsResponse);
+
+    rpc ListInts (ListIntsRequest) returns (ListIntsResponse);
+    rpc ClearInts (ClearIntsRequest) returns (ClearIntsResponse);
+}
+
+message PutTwoIntsRequest {
+    int32 a = 1;
+    int32 b = 2;
+}
+
+message PutTwoIntsResponse { }
+
+message ListIntsRequest { }
+
+message ListIntsResponse {
+    repeated int32 ints = 1;
+}
+
+message ClearIntsRequest { }
+
+message ClearIntsResponse { }
