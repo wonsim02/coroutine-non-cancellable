@@ -59,7 +59,7 @@ class GrpcSampleServiceTest {
         coEvery { sampleComponent.perform() } coAnswers {
             logger.info("Enter sampleComponent.perform() call")
             functionCalled = true
-            delay(5000L)
+            delay(1500L)
             logger.info("Escape sampleComponent.perform() call")
         }
 
@@ -74,7 +74,7 @@ class GrpcSampleServiceTest {
         while (!functionCalled) { delay(500L) }
         logger.info("Cancel request CancellablePutTwoInts")
         callRpcJob.cancelAndJoin()
-        delay(5000L)
+        delay(1500L)
 
         val response = stub.listInts(ListIntsRequest.getDefaultInstance())
         val ints = response.intsList
@@ -93,7 +93,7 @@ class GrpcSampleServiceTest {
         coEvery { sampleComponent.perform() } coAnswers {
             logger.info("Enter sampleComponent.perform() call")
             functionCalled = true
-            delay(5000L)
+            delay(1500L)
             logger.info("Escape sampleComponent.perform() call")
         }
 
@@ -108,7 +108,7 @@ class GrpcSampleServiceTest {
         while (!functionCalled) { delay(500L) }
         logger.info("Cancel request NonCancellablePutTwoInts")
         callRpcJob.cancelAndJoin()
-        delay(5000L)
+        delay(1500L)
 
         val response = stub.listInts(ListIntsRequest.getDefaultInstance())
         val ints = response.intsList
